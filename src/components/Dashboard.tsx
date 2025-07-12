@@ -21,10 +21,10 @@ const Dashboard = () => {
   ];
 
   const inventoryData = [
-    { store: 'Store A', current: 85, optimal: 100, status: 'warning' },
-    { store: 'Store B', current: 95, optimal: 100, status: 'good' },
-    { store: 'Store C', current: 45, optimal: 100, status: 'critical' },
-    { store: 'Store D', current: 78, optimal: 100, status: 'good' },
+    { store: 'Mumbai Central', current: 85, optimal: 100, status: 'warning' },
+    { store: 'Delhi Connaught Place', current: 95, optimal: 100, status: 'good' },
+    { store: 'Bangalore Koramangala', current: 45, optimal: 100, status: 'critical' },
+    { store: 'Chennai T.Nagar', current: 78, optimal: 100, status: 'good' },
   ];
 
   const pricingData = [
