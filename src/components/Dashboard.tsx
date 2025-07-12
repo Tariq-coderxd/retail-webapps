@@ -10,33 +10,36 @@ import { TrendingUp, Package, DollarSign, Users, AlertTriangle, CheckCircle, Bra
 const Dashboard = () => {
   const [activeAgents, setActiveAgents] = useState(3);
   
-  // Mock data for demand forecasting
+  // Mock data for demand forecasting based on uploaded spreadsheet
   const demandData = [
-    { month: 'Jan', actual: 2400, predicted: 2300, future: null },
-    { month: 'Feb', actual: 1398, predicted: 1450, future: null },
-    { month: 'Mar', actual: 9800, predicted: 9600, future: null },
-    { month: 'Apr', actual: 3908, predicted: 4100, future: null },
-    { month: 'May', actual: 4800, predicted: 4700, future: null },
-    { month: 'Jun', actual: 3800, predicted: 3900, future: null },
-    { month: 'Jul', actual: null, predicted: null, future: 4200 },
-    { month: 'Aug', actual: null, predicted: null, future: 4500 },
-    { month: 'Sep', actual: null, predicted: null, future: 5100 },
-    { month: 'Oct', actual: null, predicted: null, future: 4800 },
-    { month: 'Nov', actual: null, predicted: null, future: 6200 },
-    { month: 'Dec', actual: null, predicted: null, future: 7500 },
+    { month: 'Jan', actual: 334, predicted: 338, future: null },
+    { month: 'Feb', actual: 429, predicted: 425, future: null },
+    { month: 'Mar', actual: 344, predicted: 350, future: null },
+    { month: 'Apr', actual: 368, predicted: 365, future: null },
+    { month: 'May', actual: 475, predicted: 480, future: null },
+    { month: 'Jun', actual: 431, predicted: 428, future: null },
+    { month: 'Jul', actual: null, predicted: null, future: 445 },
+    { month: 'Aug', actual: null, predicted: null, future: 490 },
+    { month: 'Sep', actual: null, predicted: null, future: 520 },
+    { month: 'Oct', actual: null, predicted: null, future: 485 },
+    { month: 'Nov', actual: null, predicted: null, future: 580 },
+    { month: 'Dec', actual: null, predicted: null, future: 650 },
   ];
 
   const inventoryData = [
-    { store: 'Mumbai Central', current: 85, optimal: 100, status: 'warning' },
-    { store: 'Delhi Connaught Place', current: 95, optimal: 100, status: 'good' },
-    { store: 'Bangalore Koramangala', current: 45, optimal: 100, status: 'critical' },
-    { store: 'Chennai T.Nagar', current: 78, optimal: 100, status: 'good' },
+    { store: 'Store 49 - Mumbai', current: 60, optimal: 100, status: 'warning' },
+    { store: 'Store 77 - Delhi', current: 95, optimal: 100, status: 'good' },
+    { store: 'Store 53 - Bangalore', current: 45, optimal: 100, status: 'critical' },
+    { store: 'Store 19 - Chennai', current: 78, optimal: 100, status: 'good' },
+    { store: 'Store 66 - Kolkata', current: 25, optimal: 100, status: 'critical' },
   ];
 
   const pricingData = [
-    { product: 'Haldiram\'s Bhujia', currentPrice: 29.99, suggestedPrice: 27.99, impact: '+12%' },
-    { product: 'Maggi Noodles', currentPrice: 49.99, suggestedPrice: 52.99, impact: '+8%' },
-    { product: 'Britannia Biscuits', currentPrice: 19.99, suggestedPrice: 18.99, impact: '+15%' },
+    { product: 'Product 2695', currentPrice: 31.51, suggestedPrice: 29.85, impact: '+5.3%' },
+    { product: 'Product 5540', currentPrice: 35.51, suggestedPrice: 38.20, impact: '+7.6%' },
+    { product: 'Product 2435', currentPrice: 6.54, suggestedPrice: 7.15, impact: '+9.3%' },
+    { product: 'Product 3489', currentPrice: 13.51, suggestedPrice: 14.25, impact: '+5.5%' },
+    { product: 'Product 7318', currentPrice: 62.68, suggestedPrice: 65.80, impact: '+5.0%' },
   ];
 
   const agentActivities = [
