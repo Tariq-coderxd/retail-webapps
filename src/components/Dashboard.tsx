@@ -8,7 +8,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { TrendingUp, Package, DollarSign, Users, AlertTriangle, CheckCircle, Brain, Activity } from 'lucide-react';
 
 const Dashboard = () => {
-  const [activeAgents, setActiveAgents] = useState(4);
+  const [activeAgents, setActiveAgents] = useState(3);
   
   // Mock data for demand forecasting
   const demandData = [
@@ -48,7 +48,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveAgents(prev => prev === 4 ? 3 : 4);
+      setActiveAgents(prev => prev === 3 ? 2 : 3);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -101,7 +101,7 @@ const Dashboard = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-purple-200 text-sm">Active Agents</p>
-                  <p className="text-white text-2xl font-bold">{activeAgents}/4</p>
+                  <p className="text-white text-2xl font-bold">{activeAgents}/3</p>
                   <p className="text-purple-400 text-xs flex items-center mt-1">
                     <Brain className="w-3 h-3 mr-1" />
                     AI Powered
