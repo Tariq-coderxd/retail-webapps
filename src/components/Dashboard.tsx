@@ -12,12 +12,18 @@ const Dashboard = () => {
   
   // Mock data for demand forecasting
   const demandData = [
-    { month: 'Jan', actual: 2400, predicted: 2300 },
-    { month: 'Feb', actual: 1398, predicted: 1450 },
-    { month: 'Mar', actual: 9800, predicted: 9600 },
-    { month: 'Apr', actual: 3908, predicted: 4100 },
-    { month: 'May', actual: 4800, predicted: 4700 },
-    { month: 'Jun', actual: 3800, predicted: 3900 },
+    { month: 'Jan', actual: 2400, predicted: 2300, future: null },
+    { month: 'Feb', actual: 1398, predicted: 1450, future: null },
+    { month: 'Mar', actual: 9800, predicted: 9600, future: null },
+    { month: 'Apr', actual: 3908, predicted: 4100, future: null },
+    { month: 'May', actual: 4800, predicted: 4700, future: null },
+    { month: 'Jun', actual: 3800, predicted: 3900, future: null },
+    { month: 'Jul', actual: null, predicted: null, future: 4200 },
+    { month: 'Aug', actual: null, predicted: null, future: 4500 },
+    { month: 'Sep', actual: null, predicted: null, future: 5100 },
+    { month: 'Oct', actual: null, predicted: null, future: 4800 },
+    { month: 'Nov', actual: null, predicted: null, future: 6200 },
+    { month: 'Dec', actual: null, predicted: null, future: 7500 },
   ];
 
   const inventoryData = [
@@ -232,7 +238,8 @@ const Dashboard = () => {
           <TabsContent value="forecasting">
             <Card className="bg-white/10 backdrop-blur-lg border-white/20">
               <CardHeader>
-                <CardTitle className="text-white">Demand Forecasting vs Actual</CardTitle>
+                <CardTitle className="text-white">Demand Forecasting - Historical vs Future Predictions</CardTitle>
+                <p className="text-purple-200 text-sm">Historical data (Jan-Jun) and AI-predicted upcoming demand (Jul-Dec)</p>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={400}>
@@ -247,10 +254,47 @@ const Dashboard = () => {
                         borderRadius: '8px'
                       }} 
                     />
-                    <Line type="monotone" dataKey="actual" stroke="#10B981" strokeWidth={3} name="Actual" />
-                    <Line type="monotone" dataKey="predicted" stroke="#8B5CF6" strokeWidth={3} name="Predicted" />
+                    <Line 
+                      type="monotone" 
+                      dataKey="actual" 
+                      stroke="#10B981" 
+                      strokeWidth={3} 
+                      name="Actual Sales"
+                      connectNulls={false}
+                    />
+                    <Line 
+                      type="monotone" 
+                      dataKey="predicted" 
+                      stroke="#8B5CF6" 
+                      strokeWidth={3} 
+                      name="AI Predictions (Historical)"
+                      connectNulls={false}
+                    />
+                    <Line 
+                      type="monotone" 
+                      dataKey="future" 
+                      stroke="#F59E0B" 
+                      strokeWidth={3} 
+                      strokeDasharray="8 8"
+                      name="Future Demand Forecast"
+                      connectNulls={false}
+                    />
                   </LineChart>
                 </ResponsiveContainer>
+                <div className="mt-4 flex justify-center space-x-6 text-sm">
+                  <div className="flex items-center">
+                    <div className="w-4 h-0.5 bg-green-500 mr-2"></div>
+                    <span className="text-purple-200">Actual Sales</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-0.5 bg-purple-500 mr-2"></div>
+                    <span className="text-purple-200">AI Predictions</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-0.5 bg-yellow-500 border-dashed mr-2" style={{borderTopStyle: 'dashed', borderTopWidth: '2px'}}></div>
+                    <span className="text-purple-200">Future Forecast</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
