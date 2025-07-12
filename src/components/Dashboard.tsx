@@ -28,9 +28,9 @@ const Dashboard = () => {
   ];
 
   const pricingData = [
-    { product: 'Product A', currentPrice: 29.99, suggestedPrice: 27.99, impact: '+12%' },
-    { product: 'Product B', currentPrice: 49.99, suggestedPrice: 52.99, impact: '+8%' },
-    { product: 'Product C', currentPrice: 19.99, suggestedPrice: 18.99, impact: '+15%' },
+    { product: 'Haldiram\'s Bhujia', currentPrice: 29.99, suggestedPrice: 27.99, impact: '+12%' },
+    { product: 'Maggi Noodles', currentPrice: 49.99, suggestedPrice: 52.99, impact: '+8%' },
+    { product: 'Britannia Biscuits', currentPrice: 19.99, suggestedPrice: 18.99, impact: '+15%' },
   ];
 
   const agentActivities = [
