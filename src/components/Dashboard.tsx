@@ -35,11 +35,11 @@ const Dashboard = () => {
   ];
 
   const pricingData = [
-    { product: 'Product 2695', currentPrice: 31.51, suggestedPrice: 29.85, impact: '+5.3%' },
-    { product: 'Product 5540', currentPrice: 35.51, suggestedPrice: 38.20, impact: '+7.6%' },
-    { product: 'Product 2435', currentPrice: 6.54, suggestedPrice: 7.15, impact: '+9.3%' },
-    { product: 'Product 3489', currentPrice: 13.51, suggestedPrice: 14.25, impact: '+5.5%' },
-    { product: 'Product 7318', currentPrice: 62.68, suggestedPrice: 65.80, impact: '+5.0%' },
+    { product: 'Electronics Smartphone', currentPrice: 31.51, suggestedPrice: 29.85, impact: '+5.3%' },
+    { product: 'Fashion Jeans', currentPrice: 35.51, suggestedPrice: 38.20, impact: '+7.6%' },
+    { product: 'Beauty Lipstick', currentPrice: 6.54, suggestedPrice: 7.15, impact: '+9.3%' },
+    { product: 'Books Comics', currentPrice: 13.51, suggestedPrice: 14.25, impact: '+5.5%' },
+    { product: 'Electronics Laptop', currentPrice: 62.68, suggestedPrice: 65.80, impact: '+5.0%' },
   ];
 
   const agentActivities = [
