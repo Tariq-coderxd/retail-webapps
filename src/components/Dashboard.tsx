@@ -46,7 +46,6 @@ const Dashboard = () => {
     { agent: 'Demand Forecasting Agent', status: 'active', task: 'Processing Q2 demand patterns', accuracy: 94 },
     { agent: 'Inventory Monitoring Agent', status: 'active', task: 'Scanning warehouse levels', accuracy: 97 },
     { agent: 'Pricing Optimization Agent', status: 'active', task: 'Adjusting seasonal prices', accuracy: 89 },
-    { agent: 'Supply Chain Agent', status: 'idle', task: 'Standby mode', accuracy: 92 },
   ];
 
   // Product recommendation data based on uploaded spreadsheet
