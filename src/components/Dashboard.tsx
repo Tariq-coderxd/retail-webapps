@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
-import { TrendingUp, Package, DollarSign, Users, AlertTriangle, CheckCircle, Brain, Activity } from 'lucide-react';
+import { TrendingUp, Package, DollarSign, Users, AlertTriangle, CheckCircle, Brain, Activity, Target, UserCheck } from 'lucide-react';
 
 const Dashboard = () => {
   const [activeAgents, setActiveAgents] = useState(3);
@@ -47,6 +47,30 @@ const Dashboard = () => {
     { agent: 'Inventory Monitoring Agent', status: 'active', task: 'Scanning warehouse levels', accuracy: 97 },
     { agent: 'Pricing Optimization Agent', status: 'active', task: 'Adjusting seasonal prices', accuracy: 89 },
     { agent: 'Supply Chain Agent', status: 'idle', task: 'Standby mode', accuracy: 92 },
+  ];
+
+  // Product recommendation data based on uploaded spreadsheet
+  const productRecommendations = [
+    { product: 'P2000 - Fashion Jeans', category: 'Fashion', price: 713, brand: 'Brand B', probability: 0.91, season: 'Summer' },
+    { product: 'P2001 - Beauty Lipstick', category: 'Beauty', price: 232, brand: 'Brand D', probability: 0.86, season: 'Winter' },
+    { product: 'P2002 - Electronics Laptop', category: 'Electronics', price: 4833, brand: 'Brand B', probability: 0.6, season: 'Spring' },
+    { product: 'P2003 - Books Comics', category: 'Books', price: 802, brand: 'Brand D', probability: 0.36, season: 'Winter' },
+    { product: 'P2004 - Home Decor Cushion', category: 'Home Decor', price: 356, brand: 'Brand C', probability: 0.37, season: 'Summer' },
+  ];
+
+  // Customer analytics data based on uploaded spreadsheet
+  const customerData = [
+    { segment: 'Young Adult (18-30)', count: 156, avgOrder: 2547, location: 'Mumbai', gender: 'Mixed' },
+    { segment: 'Adult (31-45)', count: 89, avgOrder: 3124, location: 'Delhi', gender: 'Mixed' },
+    { segment: 'Senior (46+)', count: 67, avgOrder: 2890, location: 'Chennai', gender: 'Mixed' },
+  ];
+
+  const locationData = [
+    { city: 'Mumbai', customers: 45, avgOrder: 2650 },
+    { city: 'Delhi', customers: 38, avgOrder: 3200 },
+    { city: 'Chennai', customers: 32, avgOrder: 2890 },
+    { city: 'Bangalore', customers: 28, avgOrder: 3450 },
+    { city: 'Kolkata', customers: 22, avgOrder: 2340 },
   ];
 
   const pieData = [
@@ -146,6 +170,8 @@ const Dashboard = () => {
             <TabsTrigger value="forecasting" className="data-[state=active]:bg-purple-600">Demand Forecasting</TabsTrigger>
             <TabsTrigger value="inventory" className="data-[state=active]:bg-purple-600">Inventory Monitor</TabsTrigger>
             <TabsTrigger value="pricing" className="data-[state=active]:bg-purple-600">Pricing Optimization</TabsTrigger>
+            <TabsTrigger value="recommendations" className="data-[state=active]:bg-purple-600">Product Recommendations</TabsTrigger>
+            <TabsTrigger value="customers" className="data-[state=active]:bg-purple-600">Customer Analytics</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
@@ -355,6 +381,166 @@ const Dashboard = () => {
                     </div>
                   ))}
                 </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="recommendations" className="space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <Target className="w-5 h-5 mr-2" />
+                    AI Product Recommendations
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {productRecommendations.map((item, index) => (
+                      <div key={index} className="p-4 bg-white/5 rounded-lg">
+                        <div className="flex justify-between items-start mb-2">
+                          <div className="flex-1">
+                            <h3 className="text-white font-medium text-sm">{item.product}</h3>
+                            <p className="text-purple-200 text-xs">
+                              {item.category} • {item.brand} • ${item.price}
+                            </p>
+                            <p className="text-purple-300 text-xs mt-1">Season: {item.season}</p>
+                          </div>
+                          <Badge className={
+                            item.probability > 0.8 ? 'bg-green-600' :
+                            item.probability > 0.5 ? 'bg-yellow-600' : 'bg-red-600'
+                          }>
+                            {Math.round(item.probability * 100)}%
+                          </Badge>
+                        </div>
+                        <Progress value={item.probability * 100} className="h-2" />
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardHeader>
+                  <CardTitle className="text-white">Recommendation Performance</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={productRecommendations}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                      <XAxis 
+                        dataKey="category" 
+                        stroke="#9CA3AF" 
+                        fontSize={12}
+                        angle={-45}
+                        textAnchor="end"
+                        height={60}
+                      />
+                      <YAxis stroke="#9CA3AF" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(30, 41, 59, 0.9)', 
+                          border: '1px solid rgba(148, 163, 184, 0.3)',
+                          borderRadius: '8px'
+                        }} 
+                      />
+                      <Bar 
+                        dataKey="probability" 
+                        fill="#8B5CF6" 
+                        name="Recommendation Score"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="customers" className="space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <UserCheck className="w-5 h-5 mr-2" />
+                    Customer Segments
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {customerData.map((segment, index) => (
+                      <div key={index} className="p-4 bg-white/5 rounded-lg">
+                        <div className="flex justify-between items-center mb-2">
+                          <div>
+                            <h3 className="text-white font-medium">{segment.segment}</h3>
+                            <p className="text-purple-200 text-sm">
+                              {segment.count} customers • Avg Order: ${segment.avgOrder}
+                            </p>
+                            <p className="text-purple-300 text-xs">Primary Location: {segment.location}</p>
+                          </div>
+                          <Badge className="bg-blue-600">
+                            ${segment.avgOrder}
+                          </Badge>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardHeader>
+                  <CardTitle className="text-white">Customer Distribution by Location</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={locationData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                      <XAxis dataKey="city" stroke="#9CA3AF" />
+                      <YAxis stroke="#9CA3AF" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(30, 41, 59, 0.9)', 
+                          border: '1px solid rgba(148, 163, 184, 0.3)',
+                          borderRadius: '8px'
+                        }} 
+                      />
+                      <Bar 
+                        dataKey="customers" 
+                        fill="#10B981" 
+                        name="Number of Customers"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <CardHeader>
+                <CardTitle className="text-white">Average Order Value by Location</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <LineChart data={locationData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                    <XAxis dataKey="city" stroke="#9CA3AF" />
+                    <YAxis stroke="#9CA3AF" />
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'rgba(30, 41, 59, 0.9)', 
+                        border: '1px solid rgba(148, 163, 184, 0.3)',
+                        borderRadius: '8px'
+                      }} 
+                    />
+                    <Line 
+                      type="monotone" 
+                      dataKey="avgOrder" 
+                      stroke="#F59E0B" 
+                      strokeWidth={3}
+                      name="Average Order Value ($)"
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
               </CardContent>
             </Card>
           </TabsContent>
