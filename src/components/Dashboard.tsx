@@ -86,98 +86,163 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Multi-Agent Retail Inventory System</h1>
-          <p className="text-purple-200">AI-Powered Inventory Optimization & Management</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4 md:p-6">
+      <div className="max-w-7xl mx-auto space-y-8">
+        {/* Enhanced Header with subtle animation */}
+        <div className="text-center mb-12 animate-fade-in">
+          <div className="relative inline-block">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent mb-4">
+              Multi-Agent Retail Inventory System
+            </h1>
+            <div className="absolute -top-2 -left-2 w-full h-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 blur-xl -z-10"></div>
+          </div>
+          <p className="text-purple-200 text-lg max-w-2xl mx-auto">
+            AI-Powered Inventory Optimization & Management Platform
+          </p>
+          <div className="mt-4 flex justify-center">
+            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-green-400 text-sm font-medium">System Online</span>
+            </div>
+          </div>
         </div>
 
-        {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+        {/* Enhanced Key Metrics with hover effects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-green-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-green-400/10 hover:scale-105">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-200 text-sm">Total Revenue</p>
-                  <p className="text-white text-2xl font-bold">$2.4M</p>
-                  <p className="text-green-400 text-xs flex items-center mt-1">
-                    <TrendingUp className="w-3 h-3 mr-1" />
-                    +12.5%
+                  <p className="text-purple-200 text-sm font-medium">Total Revenue</p>
+                  <p className="text-white text-3xl font-bold">$2.4M</p>
+                  <p className="text-green-400 text-xs flex items-center mt-2">
+                    <TrendingUp className="w-4 h-4 mr-1" />
+                    +12.5% vs last month
                   </p>
                 </div>
-                <DollarSign className="w-8 h-8 text-green-400" />
+                <div className="p-3 bg-green-400/10 rounded-xl group-hover:bg-green-400/20 transition-colors">
+                  <DollarSign className="w-8 h-8 text-green-400" />
+                </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10 hover:scale-105">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-200 text-sm">Inventory Items</p>
-                  <p className="text-white text-2xl font-bold">15,847</p>
-                  <p className="text-blue-400 text-xs flex items-center mt-1">
-                    <Package className="w-3 h-3 mr-1" />
-                    Active
+                  <p className="text-purple-200 text-sm font-medium">Inventory Items</p>
+                  <p className="text-white text-3xl font-bold">15,847</p>
+                  <p className="text-blue-400 text-xs flex items-center mt-2">
+                    <Package className="w-4 h-4 mr-1" />
+                    Active tracking
                   </p>
                 </div>
-                <Package className="w-8 h-8 text-blue-400" />
+                <div className="p-3 bg-blue-400/10 rounded-xl group-hover:bg-blue-400/20 transition-colors">
+                  <Package className="w-8 h-8 text-blue-400" />
+                </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-purple-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/10 hover:scale-105">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-200 text-sm">Active Agents</p>
-                  <p className="text-white text-2xl font-bold">{activeAgents}/3</p>
-                  <p className="text-purple-400 text-xs flex items-center mt-1">
-                    <Brain className="w-3 h-3 mr-1" />
+                  <p className="text-purple-200 text-sm font-medium">Active Agents</p>
+                  <p className="text-white text-3xl font-bold">
+                    <span className="transition-all duration-500">{activeAgents}</span>/3
+                  </p>
+                  <p className="text-purple-400 text-xs flex items-center mt-2">
+                    <Brain className="w-4 h-4 mr-1" />
                     AI Powered
                   </p>
                 </div>
-                <Users className="w-8 h-8 text-purple-400" />
+                <div className="p-3 bg-purple-400/10 rounded-xl group-hover:bg-purple-400/20 transition-colors">
+                  <Users className="w-8 h-8 text-purple-400" />
+                </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-400/10 hover:scale-105">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-200 text-sm">Efficiency</p>
-                  <p className="text-white text-2xl font-bold">93%</p>
-                  <p className="text-emerald-400 text-xs flex items-center mt-1">
-                    <Activity className="w-3 h-3 mr-1" />
+                  <p className="text-purple-200 text-sm font-medium">System Efficiency</p>
+                  <p className="text-white text-3xl font-bold">93%</p>
+                  <p className="text-emerald-400 text-xs flex items-center mt-2">
+                    <Activity className="w-4 h-4 mr-1" />
                     Optimized
                   </p>
                 </div>
-                <CheckCircle className="w-8 h-8 text-emerald-400" />
+                <div className="p-3 bg-emerald-400/10 rounded-xl group-hover:bg-emerald-400/20 transition-colors">
+                  <CheckCircle className="w-8 h-8 text-emerald-400" />
+                </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Main Dashboard */}
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur-lg border-white/20">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-purple-600">Overview</TabsTrigger>
-            <TabsTrigger value="agents" className="data-[state=active]:bg-purple-600">AI Agents</TabsTrigger>
-            <TabsTrigger value="forecasting" className="data-[state=active]:bg-purple-600">Demand Forecasting</TabsTrigger>
-            <TabsTrigger value="inventory" className="data-[state=active]:bg-purple-600">Inventory Monitor</TabsTrigger>
-            <TabsTrigger value="pricing" className="data-[state=active]:bg-purple-600">Pricing Optimization</TabsTrigger>
-            <TabsTrigger value="recommendations" className="data-[state=active]:bg-purple-600">Product Recommendations</TabsTrigger>
-            <TabsTrigger value="customers" className="data-[state=active]:bg-purple-600">Customer Analytics</TabsTrigger>
-          </TabsList>
+        {/* Enhanced Main Dashboard with professional tabs */}
+        <Tabs defaultValue="overview" className="space-y-8">
+          <div className="overflow-x-auto">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 bg-white/10 backdrop-blur-lg border-white/20 rounded-xl p-1">
+              <TabsTrigger 
+                value="overview" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                Overview
+              </TabsTrigger>
+              <TabsTrigger 
+                value="agents" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                AI Agents
+              </TabsTrigger>
+              <TabsTrigger 
+                value="forecasting" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                Forecasting
+              </TabsTrigger>
+              <TabsTrigger 
+                value="inventory" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                Inventory
+              </TabsTrigger>
+              <TabsTrigger 
+                value="pricing" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                Pricing
+              </TabsTrigger>
+              <TabsTrigger 
+                value="recommendations" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                Recommendations
+              </TabsTrigger>
+              <TabsTrigger 
+                value="customers" 
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white transition-all duration-300 rounded-lg"
+              >
+                Customers
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-          <TabsContent value="overview" className="space-y-6">
+          <TabsContent value="overview" className="space-y-6 animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-purple-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/10">
                 <CardHeader>
-                  <CardTitle className="text-white">Inventory Distribution</CardTitle>
+                  <CardTitle className="text-white flex items-center">
+                    <div className="p-2 bg-purple-500/10 rounded-lg mr-3">
+                      <Package className="w-5 h-5 text-purple-400" />
+                    </div>
+                    Inventory Distribution
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -194,80 +259,103 @@ const Dashboard = () => {
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
                       </Pie>
-                      <Tooltip />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(30, 41, 59, 0.9)', 
+                          border: '1px solid rgba(148, 163, 184, 0.3)',
+                          borderRadius: '8px'
+                        }}
+                      />
                     </PieChart>
                   </ResponsiveContainer>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10">
                 <CardHeader>
-                  <CardTitle className="text-white">System Performance</CardTitle>
+                  <CardTitle className="text-white flex items-center">
+                    <div className="p-2 bg-blue-500/10 rounded-lg mr-3">
+                      <Activity className="w-5 h-5 text-blue-400" />
+                    </div>
+                    System Performance
+                  </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-6">
                   <div>
-                    <div className="flex justify-between text-sm text-purple-200 mb-1">
-                      <span>Forecast Accuracy</span>
-                      <span>94%</span>
+                    <div className="flex justify-between text-sm text-purple-200 mb-2">
+                      <span className="font-medium">Forecast Accuracy</span>
+                      <span className="font-bold">94%</span>
                     </div>
-                    <Progress value={94} className="h-2" />
+                    <Progress value={94} className="h-3" />
                   </div>
                   <div>
-                    <div className="flex justify-between text-sm text-purple-200 mb-1">
-                      <span>Inventory Optimization</span>
-                      <span>87%</span>
+                    <div className="flex justify-between text-sm text-purple-200 mb-2">
+                      <span className="font-medium">Inventory Optimization</span>
+                      <span className="font-bold">87%</span>
                     </div>
-                    <Progress value={87} className="h-2" />
+                    <Progress value={87} className="h-3" />
                   </div>
                   <div>
-                    <div className="flex justify-between text-sm text-purple-200 mb-1">
-                      <span>Price Optimization</span>
-                      <span>91%</span>
+                    <div className="flex justify-between text-sm text-purple-200 mb-2">
+                      <span className="font-medium">Price Optimization</span>
+                      <span className="font-bold">91%</span>
                     </div>
-                    <Progress value={91} className="h-2" />
+                    <Progress value={91} className="h-3" />
                   </div>
                   <div>
-                    <div className="flex justify-between text-sm text-purple-200 mb-1">
-                      <span>Supply Chain Efficiency</span>
-                      <span>89%</span>
+                    <div className="flex justify-between text-sm text-purple-200 mb-2">
+                      <span className="font-medium">Supply Chain Efficiency</span>
+                      <span className="font-bold">89%</span>
                     </div>
-                    <Progress value={89} className="h-2" />
+                    <Progress value={89} className="h-3" />
                   </div>
                 </CardContent>
               </Card>
             </div>
           </TabsContent>
 
-          <TabsContent value="agents" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <TabsContent value="agents" className="space-y-6 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {agentActivities.map((agent, index) => (
-                <Card key={index} className="bg-white/10 backdrop-blur-lg border-white/20">
+                <Card key={index} className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-green-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-green-400/10 hover:scale-105">
                   <CardHeader>
-                    <div className="flex justify-between items-center">
-                      <CardTitle className="text-white text-lg">{agent.agent}</CardTitle>
-                      <Badge className={agent.status === 'active' ? 'bg-green-600' : 'bg-gray-600'}>
-                        {agent.status}
-                      </Badge>
+                    <div className="flex justify-between items-start">
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-green-500/10 rounded-lg">
+                          <Brain className="w-5 h-5 text-green-400" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-white text-lg leading-tight">{agent.agent}</CardTitle>
+                          <Badge className="mt-1 bg-green-600/20 text-green-400 border-green-400/30">
+                            {agent.status}
+                          </Badge>
+                        </div>
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-purple-200 mb-3">{agent.task}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-purple-300">Accuracy:</span>
-                      <span className="text-white font-semibold">{agent.accuracy}%</span>
+                    <p className="text-purple-200 mb-4 text-sm leading-relaxed">{agent.task}</p>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-purple-300 font-medium">Accuracy:</span>
+                      <span className="text-white font-bold text-lg">{agent.accuracy}%</span>
                     </div>
-                    <Progress value={agent.accuracy} className="mt-2 h-2" />
+                    <Progress value={agent.accuracy} className="h-3" />
                   </CardContent>
                 </Card>
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="forecasting">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <TabsContent value="forecasting" className="animate-fade-in">
+            <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-yellow-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/10">
               <CardHeader>
-                <CardTitle className="text-white">Demand Forecasting - Historical vs Future Predictions</CardTitle>
-                <p className="text-purple-200 text-sm">Historical data (Jan-Jun) and AI-predicted upcoming demand (Jul-Dec)</p>
+                <CardTitle className="text-white flex items-center">
+                  <div className="p-2 bg-yellow-500/10 rounded-lg mr-3">
+                    <TrendingUp className="w-5 h-5 text-yellow-400" />
+                  </div>
+                  Demand Forecasting - Historical vs Future Predictions
+                </CardTitle>
+                <p className="text-purple-200 text-sm mt-2">Historical data (Jan-Jun) and AI-predicted upcoming demand (Jul-Dec)</p>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={400}>
@@ -309,46 +397,51 @@ const Dashboard = () => {
                     />
                   </LineChart>
                 </ResponsiveContainer>
-                <div className="mt-4 flex justify-center space-x-6 text-sm">
-                  <div className="flex items-center">
+                <div className="mt-6 flex justify-center space-x-8 text-sm">
+                  <div className="flex items-center bg-white/5 px-3 py-2 rounded-lg">
                     <div className="w-4 h-0.5 bg-green-500 mr-2"></div>
-                    <span className="text-purple-200">Actual Sales</span>
+                    <span className="text-purple-200 font-medium">Actual Sales</span>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center bg-white/5 px-3 py-2 rounded-lg">
                     <div className="w-4 h-0.5 bg-purple-500 mr-2"></div>
-                    <span className="text-purple-200">AI Predictions</span>
+                    <span className="text-purple-200 font-medium">AI Predictions</span>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center bg-white/5 px-3 py-2 rounded-lg">
                     <div className="w-4 h-0.5 bg-yellow-500 border-dashed mr-2" style={{borderTopStyle: 'dashed', borderTopWidth: '2px'}}></div>
-                    <span className="text-purple-200">Future Forecast</span>
+                    <span className="text-purple-200 font-medium">Future Forecast</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
 
-          <TabsContent value="inventory">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <TabsContent value="inventory" className="animate-fade-in">
+            <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10">
               <CardHeader>
-                <CardTitle className="text-white">Store Inventory Levels</CardTitle>
+                <CardTitle className="text-white flex items-center">
+                  <div className="p-2 bg-blue-500/10 rounded-lg mr-3">
+                    <Package className="w-5 h-5 text-blue-400" />
+                  </div>
+                  Store Inventory Levels
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {inventoryData.map((store, index) => (
-                    <div key={index} className="p-4 bg-white/5 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
+                    <div key={index} className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20">
+                      <div className="flex justify-between items-center mb-3">
                         <span className="text-white font-medium">{store.store}</span>
                         <Badge className={
-                          store.status === 'critical' ? 'bg-red-600' :
-                          store.status === 'warning' ? 'bg-yellow-600' : 'bg-green-600'
+                          store.status === 'critical' ? 'bg-red-600/20 text-red-400 border-red-400/30' :
+                          store.status === 'warning' ? 'bg-yellow-600/20 text-yellow-400 border-yellow-400/30' : 'bg-green-600/20 text-green-400 border-green-400/30'
                         }>
                           {store.current}%
                         </Badge>
                       </div>
-                      <Progress value={store.current} className="h-3" />
-                      <div className="flex justify-between text-sm text-purple-200 mt-1">
-                        <span>Current: {store.current}%</span>
-                        <span>Optimal: {store.optimal}%</span>
+                      <Progress value={store.current} className="h-3 mb-2" />
+                      <div className="flex justify-between text-sm text-purple-200">
+                        <span className="font-medium">Current: {store.current}%</span>
+                        <span className="font-medium">Optimal: {store.optimal}%</span>
                       </div>
                     </div>
                   ))}
@@ -357,23 +450,28 @@ const Dashboard = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="pricing">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <TabsContent value="pricing" className="animate-fade-in">
+            <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-green-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-green-400/10">
               <CardHeader>
-                <CardTitle className="text-white">Dynamic Pricing Recommendations</CardTitle>
+                <CardTitle className="text-white flex items-center">
+                  <div className="p-2 bg-green-500/10 rounded-lg mr-3">
+                    <DollarSign className="w-5 h-5 text-green-400" />
+                  </div>
+                  Dynamic Pricing Recommendations
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {pricingData.map((item, index) => (
-                    <div key={index} className="p-4 bg-white/5 rounded-lg">
+                    <div key={index} className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20">
                       <div className="flex justify-between items-center">
-                        <div>
-                          <h3 className="text-white font-medium">{item.product}</h3>
+                        <div className="flex-1">
+                          <h3 className="text-white font-medium mb-1">{item.product}</h3>
                           <p className="text-purple-200 text-sm">
-                            Current: ${item.currentPrice} → Suggested: ${item.suggestedPrice}
+                            Current: <span className="font-semibold text-red-300">${item.currentPrice}</span> → Suggested: <span className="font-semibold text-green-300">${item.suggestedPrice}</span>
                           </p>
                         </div>
-                        <Badge className="bg-green-600">
+                        <Badge className="bg-green-600/20 text-green-400 border-green-400/30 ml-4">
                           {item.impact} sales
                         </Badge>
                       </div>
@@ -384,30 +482,32 @@ const Dashboard = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="recommendations" className="space-y-6">
+          <TabsContent value="recommendations" className="space-y-6 animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-orange-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/10">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
-                    <Target className="w-5 h-5 mr-2" />
+                    <div className="p-2 bg-orange-500/10 rounded-lg mr-3">
+                      <Target className="w-5 h-5 text-orange-400" />
+                    </div>
                     AI Product Recommendations
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {productRecommendations.map((item, index) => (
-                      <div key={index} className="p-4 bg-white/5 rounded-lg">
-                        <div className="flex justify-between items-start mb-2">
+                      <div key={index} className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20">
+                        <div className="flex justify-between items-start mb-3">
                           <div className="flex-1">
-                            <h3 className="text-white font-medium text-sm">{item.product}</h3>
+                            <h3 className="text-white font-medium text-sm mb-1">{item.product}</h3>
                             <p className="text-purple-200 text-xs">
-                              {item.category} • {item.brand} • ${item.price}
+                              {item.category} • {item.brand} • <span className="font-semibold">${item.price}</span>
                             </p>
                             <p className="text-purple-300 text-xs mt-1">Season: {item.season}</p>
                           </div>
                           <Badge className={
-                            item.probability > 0.8 ? 'bg-green-600' :
-                            item.probability > 0.5 ? 'bg-yellow-600' : 'bg-red-600'
+                            item.probability > 0.8 ? 'bg-green-600/20 text-green-400 border-green-400/30' :
+                            item.probability > 0.5 ? 'bg-yellow-600/20 text-yellow-400 border-yellow-400/30' : 'bg-red-600/20 text-red-400 border-red-400/30'
                           }>
                             {Math.round(item.probability * 100)}%
                           </Badge>
@@ -419,9 +519,14 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-purple-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/10">
                 <CardHeader>
-                  <CardTitle className="text-white">Recommendation Performance</CardTitle>
+                  <CardTitle className="text-white flex items-center">
+                    <div className="p-2 bg-purple-500/10 rounded-lg mr-3">
+                      <Activity className="w-5 h-5 text-purple-400" />
+                    </div>
+                    Recommendation Performance
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -455,28 +560,30 @@ const Dashboard = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="customers" className="space-y-6">
+          <TabsContent value="customers" className="space-y-6 animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
-                    <UserCheck className="w-5 h-5 mr-2" />
+                    <div className="p-2 bg-cyan-500/10 rounded-lg mr-3">
+                      <UserCheck className="w-5 h-5 text-cyan-400" />
+                    </div>
                     Customer Segments
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {customerData.map((segment, index) => (
-                      <div key={index} className="p-4 bg-white/5 rounded-lg">
+                      <div key={index} className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20">
                         <div className="flex justify-between items-center mb-2">
                           <div>
                             <h3 className="text-white font-medium">{segment.segment}</h3>
                             <p className="text-purple-200 text-sm">
-                              {segment.count} customers • Avg Order: ${segment.avgOrder}
+                              <span className="font-semibold">{segment.count}</span> customers • Avg Order: <span className="font-semibold text-green-300">${segment.avgOrder}</span>
                             </p>
-                            <p className="text-purple-300 text-xs">Primary Location: {segment.location}</p>
+                            <p className="text-purple-300 text-xs mt-1">Primary Location: {segment.location}</p>
                           </div>
-                          <Badge className="bg-blue-600">
+                          <Badge className="bg-blue-600/20 text-blue-400 border-blue-400/30">
                             ${segment.avgOrder}
                           </Badge>
                         </div>
@@ -486,9 +593,14 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-400/10">
                 <CardHeader>
-                  <CardTitle className="text-white">Customer Distribution by Location</CardTitle>
+                  <CardTitle className="text-white flex items-center">
+                    <div className="p-2 bg-emerald-500/10 rounded-lg mr-3">
+                      <Users className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    Customer Distribution by Location
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -514,9 +626,14 @@ const Dashboard = () => {
               </Card>
             </div>
 
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+            <Card className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border-white/20 hover:border-amber-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-amber-400/10">
               <CardHeader>
-                <CardTitle className="text-white">Average Order Value by Location</CardTitle>
+                <CardTitle className="text-white flex items-center">
+                  <div className="p-2 bg-amber-500/10 rounded-lg mr-3">
+                    <TrendingUp className="w-5 h-5 text-amber-400" />
+                  </div>
+                  Average Order Value by Location
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
